@@ -14,9 +14,7 @@ streamlit run streamlit_app.py
 
 # Fraud Detection tab
 
-Enter a transaction reference and the seven transaction details, then click Check transaction. Use the same category codes and time units as the training data. The reference is just a label and does not affect the prediction.
-
-The result will say Not flagged or Possible fraud. The chart shows how changing the transaction amount affects the model’s fraud score while the other details stay the same. This helps explain the model, but it does not prove fraud.
+The chart shows how the model’s fraud score changes when the transaction amount changes. All the other transaction details stay the same, so we can focus on how the amount affects the result. In the example I tested, the score generally went down as the amount increased. This shows how my model responds to these inputs, but it does not mean larger transactions are always safer. A business could use the chart to better understand the prediction before deciding whether a transaction needs a closer look.
 
 # Audio Sentiment tab
 
