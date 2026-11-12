@@ -55,6 +55,13 @@ churn_tab, audio_tab = st.tabs(["Fraud Detection", "Audio Sentiment"])
 with churn_tab:
     st.header("Fraud Detection")
     reference = st.text_input("Transaction reference")
+    amount = st.number_input("Transaction amount", min_value=0.0)
+    merchant = st.number_input("Merchant category code", min_value=0, step=1)
+    device = st.number_input("Device type code", min_value=0, step=1)
+    time_gap = st.number_input("Time since previous transaction", min_value=0.0)
+    mean_amount = st.number_input("Average amount of previous 5 transactions", min_value=0.0)
+    std_amount = st.number_input("Standard deviation of previous 5 amounts", min_value=0.0)
+    count = st.number_input("Previous transaction count (up to 5)", min_value=0, max_value=5, step=1)
 
 with audio_tab:
     st.header("Audio Sentiment")
