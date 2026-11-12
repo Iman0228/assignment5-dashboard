@@ -84,7 +84,7 @@ with churn_tab:
         result = predict_fraud(values)
         st.write("Transaction reference:", reference)
         st.write("Prediction:", result)
-                chart = []
+        chart = []
         for test_amount in [0, 50, 100, 250, 500]:
             changed = values.copy()
             changed[0] = test_amount
