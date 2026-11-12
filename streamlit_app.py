@@ -72,6 +72,11 @@ with churn_tab:
     mean_amount = st.number_input("Average amount of previous 5 transactions", min_value=0.0)
     std_amount = st.number_input("Standard deviation of previous 5 amounts", min_value=0.0)
     count = st.number_input("Previous transaction count (up to 5)", min_value=0, max_value=5, step=1)
+    if st.button("Check transaction"):
+        values = [amount, merchant, device, time_gap, mean_amount, std_amount, count]
+        result = predict_fraud(values)
+        st.write("Transaction reference:", reference)
+        st.write("Prediction:", result)
 
 with audio_tab:
     st.header("Audio Sentiment")
