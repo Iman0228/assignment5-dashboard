@@ -34,6 +34,17 @@ def predict_audio(audio_file):
     result = model(numbers).argmax().item()
 
     return ["Negative", "Positive"][result]
+def load_fraud_model():
+    model = nn.Sequential()
+    model.add_module("net", nn.Sequential(
+        nn.Linear(7, 8),
+        nn.ReLU(),
+        nn.Dropout(0.2),
+        nn.Linear(8, 2)
+    ))
+    model.load_state_dict(torch.load("fraud_model.pth", map_location="cpu"))
+    model.eval()
+    return model
 st.title("Customer Insights")
 
 
