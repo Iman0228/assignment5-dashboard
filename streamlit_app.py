@@ -84,6 +84,15 @@ with churn_tab:
         result = predict_fraud(values)
         st.write("Transaction reference:", reference)
         st.write("Prediction:", result)
+                chart = []
+        for test_amount in [0, 50, 100, 250, 500]:
+            changed = values.copy()
+            changed[0] = test_amount
+            chart.append({"Amount": test_amount, "Fraud score": fraud_score(changed)})
+
+        st.write("How transaction amount affects the model")
+        st.line_chart(chart, x="Amount", y="Fraud score")
+        st.caption("Only the transaction amount changes. The score shows model behavior, not proof of fraud.")
 
 with audio_tab:
     st.header("Audio Sentiment")
