@@ -24,6 +24,16 @@ def prepare_audio(audio_file):
     changes = delta(features, 2)
     features = np.concatenate((features, changes), axis=1)
     return features.mean(axis=0)
+def predict_audio(audio_file):
+    features = prepare_audio(audio_file)
+    settings = np.load("audio_settings.npz")
+    features = (features - settings["arr_0"]) / settings["arr_1"]
+
+    model = load_audio_model()
+    numbers = torch.tensor(features, dtype=torch.float32)
+    result = model(numbers).argmax().item()
+
+    return ["Negative", "Positive"][result]
 st.title("Customer Insights")
 
 
