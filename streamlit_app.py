@@ -45,6 +45,16 @@ def load_fraud_model():
     model.load_state_dict(torch.load("fraud_model.pth", map_location="cpu"))
     model.eval()
     return model
+def predict_fraud(values):
+    settings = np.load("fraud_settings.npz")
+    values = np.array(values)
+    values = (values - settings["arr_0"]) / settings["arr_1"]
+
+    model = load_fraud_model()
+    numbers = torch.tensor(values, dtype=torch.float32)
+    result = model(numbers).argmax().item()
+
+    return ["Not flagged", "Possible fraud"][result]
 st.title("Customer Insights")
 
 
