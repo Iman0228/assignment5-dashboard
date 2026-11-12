@@ -16,6 +16,14 @@ def load_audio_model():
     model.load_state_dict(torch.load("audio_model.pth", map_location="cpu"))
     model.eval()
     return model
+def prepare_audio(audio_file):
+    sample_rate, sound = wavfile.read(audio_file)
+    sound = sound.astype(np.float32)
+
+    features = mfcc(sound, samplerate=sample_rate, numcep=13)
+    changes = delta(features, 2)
+    features = np.concatenate((features, changes), axis=1)
+    return features.mean(axis=0)
 st.title("Customer Insights")
 
 
