@@ -1,7 +1,7 @@
-# assignment5-dashboard
+# assignment5 dashboard
 # Customer Insights Dashboard
 
-This dashboard brings together my models from Assignments 3 and 4. It helps a business check transactions for possible fraud and explore sentiment in customer audio. The predictions can be wrong, so someone should review the results.
+I used my models from Assignments 3 and 4 to build this dashboard. The fraud detection tab checks transaction details for possible fraud, and the audio tab predicts whether a clip sounds positive or negative. These tools could help a business review transactions and customer feedback, but the results still need to be checked to be on the safe side 
 
 # How to run
 
