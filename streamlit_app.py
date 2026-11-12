@@ -49,3 +49,6 @@ with audio_tab:
 
     if audio_file is not None:
         st.audio(audio_file)
+        audio_file.seek(0)
+        prediction = predict_audio(audio_file)
+        st.write("Predicted sentiment:", prediction)
