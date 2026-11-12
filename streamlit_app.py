@@ -66,10 +66,10 @@ st.title("Customer Insights")
 
 
 st.write("Review transactions for possible fraud and explore audio sentiment.")
-churn_tab, audio_tab = st.tabs(["Fraud Detection", "Audio Sentiment"])
+fraud_tab, audio_tab = st.tabs(["Fraud Detection", "Audio Sentiment"])
 
 
-with churn_tab:
+with fraud_tab:
     st.header("Fraud Detection")
     reference = st.text_input("Transaction reference")
     amount = st.number_input("Transaction amount", min_value=0.0)
