@@ -37,11 +37,13 @@ def predict_audio(audio_file):
 st.title("Customer Insights")
 
 
-st.write("Use this dashboard to explore customer churn and the sentiment of audio clips.")
-churn_tab, audio_tab = st.tabs(["Customer Churn", "Audio Sentiment"])
+st.write("Explore sentiment in customer reviews and audio clips.")
+churn_tab, audio_tab = st.tabs(["Text Sentiment", "Audio Sentiment"])
+
 
 with churn_tab:
-    st.header("Customer Churn")
+    st.header("Text Sentiment")
+    review = st.text_area("Type a customer review")
 
 with audio_tab:
     st.header("Audio Sentiment")
