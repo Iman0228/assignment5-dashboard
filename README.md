@@ -4,8 +4,7 @@
 I used my models from Assignments 3 and 4 to build this dashboard. The fraud detection tab checks transaction details for possible fraud, and the audio tab predicts whether a clip sounds positive or negative. These tools could help a business review transactions and customer feedback, but the results still need to be checked to be on the safe side 
 
 # How to run
-
-Keep all files in the same folder. Open a terminal in that folder and run:
+Keep all files in one folder and run these commands in a terminal.
 
 ```
 pip install -r requirements.txt
