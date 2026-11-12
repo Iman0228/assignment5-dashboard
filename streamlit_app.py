@@ -55,6 +55,13 @@ def predict_fraud(values):
     result = model(numbers).argmax().item()
 
     return ["Not flagged", "Possible fraud"][result]
+def fraud_score(values):
+    settings = np.load("fraud_settings.npz")
+    values = (np.array(values) - settings["arr_0"]) / settings["arr_1"]
+    numbers = torch.tensor(values, dtype=torch.float32)
+    model = load_fraud_model()
+    scores = torch.softmax(model(numbers), dim=0)
+    return scores[1].item()
 st.title("Customer Insights")
 
 
