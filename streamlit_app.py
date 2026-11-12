@@ -1,5 +1,9 @@
 import streamlit as st
-
+import numpy as np
+import torch
+from torch import nn
+from scipy.io import wavfile
+from python_speech_features import mfcc, delta
 st.title("Customer Insights")
 
 st.write("Use this dashboard to explore customer churn and the sentiment of audio clips.")
