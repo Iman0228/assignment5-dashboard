@@ -10,3 +10,4 @@ with churn_tab:
 
 with audio_tab:
     st.header("Audio Sentiment")
+    audio_file = st.file_uploader("Choose an audio clip", type=["wav"])
